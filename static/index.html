@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="/virtul/bundle.js"></script>
+<script>
+    const templateStr = '我是一个{{name}}，我爱吃{{thing}}';
+    const data = {};
+    gzm_templateEngine.render(templateStr, data);
+</script>
+</body>
+</html>
