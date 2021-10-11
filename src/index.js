@@ -1,19 +1,8 @@
-import Scanner from "./scanner";
+import {parseTemplateToTokens, renderTemplate} from "./utils/utils";
 
 window.gzm_templateEngine = {
     render(templateStr, data) {
-        console.log('render被调用，执行扫描器scanner')
-
-        // s扫描模版字符串
-        const scanner = new Scanner(templateStr);
-        let word;
-        while (!scanner.eos()) {
-            word = scanner.scanUtil('{{');
-            console.log(word);
-            scanner.scan("{{")
-            word = scanner.scanUtil('}}');
-            console.log(word);
-            scanner.scan("}}")
-        }
+        let tokens = parseTemplateToTokens(templateStr)
+        return renderTemplate(tokens, data)
     }
 }

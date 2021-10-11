@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title></head>
 <body>
+<div id="container"></div>
 <script src="/virtul/bundle.js"></script>
 <script>
-    const templateStr = '我是一个{{name}}，我爱吃{{thing}}';
-    const data = {};
-    gzm_templateEngine.render(templateStr, data);
+    const templateStr = ` <div> <ol> {{#students}} <li> 学生{{name}}的爱好是 <ol> {{#hobbies}} <li class='myli'>{{.}}</li> {{/hobbies}} </ol> </li> {{/students}} </ol> </div> `;
+    const data = {
+        students: [
+            {name: '小明', hobbies: ['游泳', '健身']},
+            {name: '小红', hobbies: ['足球', '篮球', '羽毛球']},
+            {name: '小强', hobbies: ['吃饭', '睡觉']},
+        ]
+    };
+    const domStr = gzm_templateEngine.render(templateStr, data);
+    const container = document.getElementById('container');
+    container.innerHTML = domStr
 </script>
 </body>
 </html>

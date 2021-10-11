@@ -3,7 +3,6 @@
  */
 export default class Scanner {
     constructor(templateStr) {
-        console.log(templateStr)
         this.templateStr = templateStr;
         // 指针
         this.pos = 0;
